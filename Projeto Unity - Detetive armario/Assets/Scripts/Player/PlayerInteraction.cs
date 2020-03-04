@@ -22,13 +22,24 @@ public class PlayerInteraction : MonoBehaviour
             {
                 SceneManager.LoadScene(currentInterObjScript.nextScene);
             }
+
+            if (currentInterObjScript.invetoryItem)
+            {
+                Inventory.instance.Add(currentInterObjScript.item);
+                
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            Debug.Log(Inventory.instance.itens);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
 
-        if (other.CompareTag("Interactable"))
+        if (other.CompareTag("Interactable") || other.CompareTag("Item"))
         {
             currentInterObj = other.gameObject;
             currentInterObjScript = currentInterObj.GetComponent<Interactable>();
@@ -38,7 +49,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Interactable"))
+        if (other.CompareTag("Interactable") || other.CompareTag("Item"))
         {
             if (other.gameObject == currentInterObj)
             {

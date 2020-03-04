@@ -2,6 +2,10 @@
 
 public class Interactable : MonoBehaviour
 {
+    [Header("Item")]
+    public Item item;
+    public bool invetoryItem = false;
+
     [Header ("Locked")]
     public bool openable = false;
     public bool locked = false;
