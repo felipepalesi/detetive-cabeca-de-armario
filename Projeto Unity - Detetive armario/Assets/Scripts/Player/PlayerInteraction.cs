@@ -8,6 +8,8 @@ public class PlayerInteraction : MonoBehaviour
 
     public GameObject currentInterObj = null;
     public Interactable currentInterObjScript = null;
+    public DialogueManager dialogueManager;
+    public PlayerController playerController;
 
     private void Update()
     {
@@ -16,7 +18,9 @@ public class PlayerInteraction : MonoBehaviour
             if (currentInterObjScript.npc)
             {
                 currentInterObjScript.Talk();
+                                
             }
+
 
             if (currentInterObjScript.door)
             {

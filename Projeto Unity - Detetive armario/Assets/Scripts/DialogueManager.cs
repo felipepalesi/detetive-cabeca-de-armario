@@ -10,9 +10,14 @@ public class DialogueManager : MonoBehaviour
     public Text nameText;
     public Text dialogueText;
 
+    [HideInInspector]
+    public bool isTalking = false;
+    public PlayerController playerController;
+
+
     private Queue<string> sentences;
 
-    // Start is called before the first frame update
+    
     void Start()
     {
         sentences = new Queue<string>();
@@ -44,6 +49,7 @@ public class DialogueManager : MonoBehaviour
         string sentence = sentences.Dequeue();
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
+        
     }
 
     IEnumerator TypeSentence (string sentence)
@@ -52,7 +58,7 @@ public class DialogueManager : MonoBehaviour
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
-            yield return null;
+            yield return new WaitForSeconds(0.03f);
         }
     }
 
