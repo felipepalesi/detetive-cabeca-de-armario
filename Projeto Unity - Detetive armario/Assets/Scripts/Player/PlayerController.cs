@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
 
     private Rigidbody2D rb;
-    public float speed;
+    public float speed = 7f;
     public float jumpForce;
     private float moveInput;
 
@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     public Transform feetPos;
     public float checkRadius;
     public LayerMask whatIsGround;
+
+    DialogueManager dialogue;
 
     private void Start()
     {
@@ -23,6 +25,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         moveInput = Input.GetAxisRaw("Horizontal");
+
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
     }
 
@@ -38,6 +41,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawSphere(feetPos.position, checkRadius);
+        Gizmos.DrawWireSphere(feetPos.position, checkRadius);
     }
 }

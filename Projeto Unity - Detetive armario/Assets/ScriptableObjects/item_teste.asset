@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: item_teste
   m_EditorClassIdentifier: 
   name: item maneiro
-  icon: {fileID: 21300000, guid: 2836907c84776d841be0977629610854, type: 3}
+  icon: {fileID: 21300000, guid: a5328a009a9c7974ba57683518e8048c, type: 3}
   isDefaultItem: 0
   itemDescripition: um carinha bem legal show

@@ -12,7 +12,6 @@ public class DialogueManager : MonoBehaviour
 
     [HideInInspector]
     public bool isTalking = false;
-    public PlayerController playerController;
 
 
     private Queue<string> sentences;
@@ -26,6 +25,8 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue (Dialogue dialogue)
     {
+        isTalking = true;
+
         nameText.text = dialogue.name;
 
         sentences.Clear();
@@ -64,6 +65,8 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
+
+        isTalking = false;
         Debug.Log("End of consvertaition");
     }
 

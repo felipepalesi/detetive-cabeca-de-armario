@@ -20,13 +20,22 @@ public class Inventory : MonoBehaviour
     #endregion
     //quando for referenciar em outro script, usar   Inventory.instance (ou   Inventory.instance.Add(item), por exemplo
 
+    public delegate void OnItemChanged();
+    public OnItemChanged onItemChangedCallback;
+
     public List<Item> itens = new List<Item>();
 
     public void Add (Item item)
     {
         if (!item.isDefaultItem)
         {
-        itens.Add(item);
+            itens.Add(item);
+
+            if(onItemChangedCallback != null)
+            {
+
+            onItemChangedCallback.Invoke();
+            }
 
         }
     }

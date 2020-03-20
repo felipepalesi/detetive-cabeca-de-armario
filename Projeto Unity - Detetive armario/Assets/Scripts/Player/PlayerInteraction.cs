@@ -9,7 +9,6 @@ public class PlayerInteraction : MonoBehaviour
     public GameObject currentInterObj = null;
     public Interactable currentInterObjScript = null;
     public DialogueManager dialogueManager;
-    public PlayerController playerController;
 
     private void Update()
     {
